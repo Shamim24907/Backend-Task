@@ -1,182 +1,491 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shamim Ahmmed</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shamim - Be With Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #fdf6fb, #e0f7fa);
-      min-height: 100vh;
-      position: relative;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
     }
 
-    /* Floating shapes */
-    .shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.1;
-      pointer-events: none;
-      animation: float 30s infinite alternate;
-    }
-    .shape-1 { width: 180px; height: 180px; top: 5%; left: 10%; background: #ffd6e0; animation-delay: 0s;}
-    .shape-2 { width: 140px; height: 140px; bottom: 10%; right: 5%; background: #a0e9ff; animation-delay: 8s;}
-    .shape-3 { width: 220px; height: 220px; top: 40%; left: 50%; background: #d6f6d6; animation-delay: 15s;}
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-25px) translateX(15px); }
-      100% { transform: translateY(0) translateX(0); }
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid #f0f0f0;
     }
 
-    /* Glass Cards */
-    .glass-card {
-      backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 2rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .glass-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
 
-    /* Buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, #fd79a8, #fab1a0);
-      color: #fff;
-      font-weight: 600;
-      transition: all 0.3s ease;
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #ff6b9d 0%, #fda8c8 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(253,121,152,0.35); }
-    .btn-secondary {
-      background: rgba(255,255,255,0.7);
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff6b9d;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-login {
+      padding: 0.75rem 2rem;
+      background: white;
+      border: 1px solid #e0e0e0;
       color: #333;
-      border: 1px solid rgba(0,0,0,0.12);
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
       transition: all 0.3s ease;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.85); transform: translateY(-2px); }
+
+    .btn-login:hover {
+      background: #f9f9f9;
+      border-color: #ff6b9d;
+    }
+
+    .btn-get-started {
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #ff6b9d 0%, #fda8c8 100%);
+      border: none;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-get-started:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 5% 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+
+    .hero .highlight {
+      color: #ff6b9d;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Social Card */
+    .social-card-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .social-card {
+      background: white;
+      border: 1px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .user-info {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user-details h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.1rem;
+    }
+
+    .user-details p {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .badge {
+      padding: 0.35rem 0.9rem;
+      background: #f5f5f5;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .card-content {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid #f5f5f5;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .card-actions button {
+      background: none;
+      border: none;
+      color: #666;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .card-actions button:hover {
+      color: #ff6b9d;
+    }
+
+    .likes {
+      color: #999;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* CTA Buttons */
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 5rem;
+    }
+
+    .btn-large {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-create {
+      background: linear-gradient(135deg, #ff6b9d 0%, #fda8c8 100%);
+      border: none;
+      color: white;
+    }
+
+    .btn-create:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+    }
+
+    .btn-signin {
+      background: white;
+      border: 1px solid #e0e0e0;
+      color: #333;
+    }
+
+    .btn-signin:hover {
+      background: #f9f9f9;
+      border-color: #ff6b9d;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 3rem 5% 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 4rem;
+      color: #1a1a1a;
+    }
+
+    .features h2 .highlight {
+      color: #ff6b9d;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
 
     .feature-icon {
-      background: linear-gradient(135deg, rgba(253,121,152,0.2), rgba(160,233,255,0.2));
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: #fff0f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
     }
 
+    .feature-card:nth-child(2) .feature-icon {
+      background: #fff0f6;
+    }
+
+    .feature-card:nth-child(3) .feature-icon {
+      background: #fff0f6;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #1a1a1a;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 5%;
+      border-top: 1px solid #f0f0f0;
+      background: white;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .footer-brand a {
+      color: #ff6b9d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ff6b9d;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
+      .btn-large {
+        width: 100%;
+      }
+    }
   </style>
 </head>
-<body class="relative min-h-screen flex flex-col">
-
-  <!-- Floating shapes -->
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
-  <div class="shape shape-3"></div>
-
+<body>
   <!-- Header -->
-  <header class="w-full fixed top-0 left-0 z-50 glass-card py-4 px-6">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-300 to-purple-300 flex items-center justify-center text-white font-bold text-xl shadow-lg">C</div>
-        <div>
-          <h1 class="text-xl font-bold text-gray-800">Shamim</h1>
-          <p class="text-xs text-gray-600">Be With Us</p>
-        </div>
-      </div>
-      <nav class="flex items-center gap-3">
-        <a href="/login" class="btn-secondary px-5 py-2 rounded-full text-sm font-semibold">Login</a>
-        <a href="/register" class="btn-primary px-6 py-2 rounded-full text-sm font-bold shadow-lg">Get Started</a>
-      </nav>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">S</div>
+      <div class="logo-text">Shamim</div>
+    </div>
+    <div class="header-buttons">
+      <a href="/login" class="btn-login">Login</a>
+      <a href="/register" class="btn-get-started">Get Started</a>
     </div>
   </header>
-  <div class="h-24"></div>
 
-  <main class="flex-grow max-w-7xl mx-auto px-6 relative z-10">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome To Our <span class="highlight">Website</span></h1>
+    <p class="hero-description">
+      Where your story finds friends. Post updates, follow creators,
+      and discover communities that match your interests.
+    </p>
 
-    <!-- Hero Section -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
-      <div class="space-y-8">
-        <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-gray-800">
-          Welcome To <span class="bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">Our Website</span>
-        </h2>
-        <p class="text-xl text-gray-600 leading-relaxed">Where your story finds friends. Post updates, follow creators, and discover communities that match your interests.</p>
-        <p class="text-lg text-gray-500">Lightweight, private-first, and built for people — not algorithms.</p>
-        <div class="flex items-center gap-4 flex-wrap">
-          <a href="/register" class="btn-primary px-8 py-4 rounded-full text-lg font-bold flex items-center gap-2 shadow-xl">Create Account</a>
-          <a href="/login" class="btn-secondary px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-2">Sign In</a>
-        </div>
-      </div>
-
-      <!-- Preview Card -->
-      <div class="order-first lg:order-last">
-        <div class="glass-card rounded-3xl p-6 max-w-md mx-auto shadow-2xl">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-200 to-pink-200 text-white flex items-center justify-center font-bold text-lg shadow-lg">AD</div>
-              <div>
-                <div class="text-base font-bold text-gray-800">Shamim Ahmmed</div>
-                <div class="text-sm text-gray-500">2 hours ago</div>
-              </div>
+    <!-- Social Card -->
+    <div class="social-card-container">
+      <div class="social-card">
+        <div class="card-header">
+          <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Shamim+Ahmmed&background=ff6b9d&color=fff" alt="Avatar" class="avatar">
+            <div class="user-details">
+              <h3>Shamim Ahmmed</h3>
+              <p>2 hours ago</p>
             </div>
-            <span class="px-3 py-1 rounded-full bg-pink-200/30 text-pink-800 text-xs font-semibold">Public</span>
           </div>
-          <p class="text-gray-700 leading-relaxed mb-5">Just launched a new mini-project — a tiny social feed built with Prisma + Express. Loving how simple the API is!</p>
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-6">
-              <button class="flex items-center gap-2 text-gray-500 hover:text-gray-800 transition">Like</button>
-              <button class="flex items-center gap-2 text-gray-500 hover:text-gray-800 transition">Comment</button>
-            </div>
-            <div class="text-sm text-gray-500 font-semibold">23 likes</div>
+          <div class="badge">Public</div>
+        </div>
+        <div class="card-content">
+          Just launched a new mini-project – a tiny social feed built with Prisma + Express. Loving how simple the API is!
+        </div>
+        <div class="card-footer">
+          <div class="card-actions">
+            <button>Like</button>
+            <button>Comment</button>
           </div>
+          <div class="likes">23 likes</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Features Section -->
-    <section class="py-20">
-      <h3 class="text-3xl font-bold text-gray-800 text-center mb-12">Why You Choose Our Website?</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card rounded-2xl p-8 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl feature-icon flex items-center justify-center">
-            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-            </svg>
-          </div>
-          <h4 class="text-xl font-bold text-gray-800 mb-3">Privacy First</h4>
-          <p class="text-gray-500">Your data belongs to you. No tracking, no selling, no surprises.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-8 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl feature-icon flex items-center justify-center">
-            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h4 class="text-xl font-bold text-gray-800 mb-3">Lightning Fast</h4>
-          <p class="text-gray-500">Minimal and efficient. Load posts instantly, no endless scrolling.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-8 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl feature-icon flex items-center justify-center">
-            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <h4 class="text-xl font-bold text-gray-800 mb-3">Real Communities</h4>
-          <p class="text-gray-500">Connect with real people who share your passions and interests.</p>
-        </div>
+    <!-- CTA Buttons -->
+    <div class="cta-buttons">
+      <a href="/register" class="btn-large btn-create">Create Account</a>
+      <a href="/login" class="btn-large btn-signin">Sign In</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why You Choose Our <span class="highlight">Website?</span></h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>Your data belongs to you. No tracking, no selling, no surprises.</p>
       </div>
-    </section>
-
-  </main>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>Minimal and efficient. Load posts instantly, no endless scrolling.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Real Communities</h3>
+        <p>Connect with real people who share your passions and interests.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-200 py-8 mt-20 relative z-10">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-gray-500 text-center md:text-left">© <strong class="text-gray-800">Shamim</strong> — Built with care.</div>
-      <div class="flex flex-wrap justify-center md:justify-end items-center gap-6 text-sm text-gray-500">
-        <a href="#" class="hover:text-gray-800 transition">Privacy</a>
-        <a href="#" class="hover:text-gray-800 transition">Terms</a>
-        <a href="#" class="hover:text-gray-800 transition">Contact</a>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        © <a href="#">Shamim</a> — Built with care.
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
       </div>
     </div>
   </footer>
-
 </body>
 </html>

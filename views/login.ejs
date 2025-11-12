@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
+  <title>Login - Shamim</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -42,9 +42,9 @@
       border-radius: 2rem;
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      padding: 2rem;
+      padding: 2.5rem;
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       transition: all 0.3s ease;
     }
     .login-card:hover {
@@ -52,19 +52,38 @@
       box-shadow: 0 15px 50px rgba(0,0,0,0.12);
     }
 
+    /* Logo */
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #fd79a8 0%, #fab1a0 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      margin: 0 auto 1rem;
+    }
+
     /* Inputs */
     .input-field {
       background: rgba(255,255,255,0.6);
       border: none;
       border-radius: 0.75rem;
-      padding: 0.75rem 1rem;
+      padding: 0.875rem 1rem;
       transition: all 0.3s ease;
       color: #333;
+      font-size: 0.95rem;
     }
     .input-field:focus {
       background: rgba(255,255,255,0.8);
       outline: none;
       border: 1px solid #ff85a2;
+    }
+    .input-field::placeholder {
+      color: #999;
     }
 
     /* Buttons */
@@ -72,10 +91,13 @@
       background: linear-gradient(135deg, #fd79a8 0%, #fab1a0 100%);
       color: #fff;
       font-weight: 600;
-      border-radius: 9999px;
+      border-radius: 0.75rem;
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.875rem;
       transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
     .login-btn:hover {
       transform: translateY(-2px);
@@ -85,9 +107,15 @@
     a {
       color: #ff85a2;
       font-weight: 500;
+      transition: all 0.2s ease;
     }
     a:hover {
+      color: #fd79a8;
       text-decoration: underline;
+    }
+
+    label {
+      font-weight: 500;
     }
   </style>
 </head>
@@ -99,36 +127,40 @@
   <div class="shape shape-3"></div>
 
   <div class="login-card">
-    <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Login</h1>
+    <!-- Logo -->
+    <div class="logo">S</div>
+    
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-2">Welcome Back</h1>
+    <p class="text-center text-gray-600 text-sm mb-6">Login to your account</p>
 
     <form method="POST" action="/login" class="space-y-5">
       <!-- Email -->
       <div>
-        <label class="block text-gray-700 text-sm mb-1">Email</label>
+        <label class="block text-gray-700 text-sm mb-2">Email Address</label>
         <input type="email" name="email" required class="input-field w-full" placeholder="you@example.com" />
       </div>
 
       <!-- Password -->
       <div>
-        <label class="block text-gray-700 text-sm mb-1">Password</label>
-        <input type="password" name="password" required class="input-field w-full" placeholder="Enter password" />
+        <label class="block text-gray-700 text-sm mb-2">Password</label>
+        <input type="password" name="password" required class="input-field w-full" placeholder="Enter your password" />
       </div>
 
       <!-- Remember & Forgot -->
       <div class="flex items-center justify-between text-sm">
         <label class="flex items-center cursor-pointer text-gray-700">
-          <input type="checkbox" name="remember" class="mr-2 w-4 h-4" />
+          <input type="checkbox" name="remember" class="mr-2 w-4 h-4 cursor-pointer" />
           Remember Me
         </label>
         <a href="/forgot-password">Forgot Password?</a>
       </div>
 
       <!-- Login Button -->
-      <button type="submit" class="login-btn text-lg font-semibold mt-2">Log in</button>
+      <button type="submit" class="login-btn mt-2">Log In</button>
 
       <!-- Register -->
       <p class="text-center text-gray-700 text-sm mt-4">
-        Don't have an account? <a href="/register">Register</a>
+        Don't have an account? <a href="/register">Create Account</a>
       </p>
     </form>
   </div>

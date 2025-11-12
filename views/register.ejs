@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register — Dreamy Website</title>
+  <title>Register - Shamim</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #ffe4f0, #fff1e6);
+      background: linear-gradient(135deg, #fdf6fb, #e0f7fa);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -19,120 +19,185 @@
       overflow: hidden;
     }
 
-    /* Floating petals */
-    .petal {
+    /* Floating shapes */
+    .shape {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: rgba(255,182,193,0.4);
-      border-radius: 50% 50% 50% 50%;
-      animation: drift 15s infinite linear;
+      border-radius: 50%;
+      opacity: 0.12;
+      animation: float 25s infinite alternate;
       pointer-events: none;
     }
-    .petal:nth-child(1){top:5%; left:10%; animation-delay:0s;}
-    .petal:nth-child(2){top:20%; right:15%; animation-delay:4s;}
-    .petal:nth-child(3){top:50%; left:60%; animation-delay:8s;}
-    .petal:nth-child(4){bottom:10%; left:30%; animation-delay:12s;}
-    @keyframes drift {
-      0%{transform: translateY(0) rotate(0deg);}
-      50%{transform: translateY(30px) rotate(45deg);}
-      100%{transform: translateY(0) rotate(360deg);}
+    .shape-1 { width: 160px; height: 160px; top: 10%; left: 5%; background: #ffd6e0; animation-delay: 0s;}
+    .shape-2 { width: 120px; height: 120px; bottom: 15%; right: 10%; background: #a0e9ff; animation-delay: 5s;}
+    .shape-3 { width: 200px; height: 200px; top: 50%; left: 50%; background: #d6f6d6; animation-delay: 10s;}
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-25px) translateX(15px); }
+      100% { transform: translateY(0) translateX(0); }
     }
 
+    /* Glass Card */
     .register-card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.35);
       border-radius: 2rem;
-      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      padding: 2.5rem;
       width: 100%;
-      max-width: 400px;
-      box-shadow: 0 15px 40px rgba(255,182,193,0.3);
+      max-width: 420px;
+      transition: all 0.3s ease;
       position: relative;
       z-index: 10;
-      transition: transform 0.3s ease;
     }
     .register-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 60px rgba(255,182,193,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
     }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: #ff85a2;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    p.subtitle {
-      text-align: center;
-      color: #ffb6b9;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
+    /* Logo */
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #fd79a8 0%, #fab1a0 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      margin: 0 auto 1rem;
     }
 
+    /* Inputs */
     .input-field {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border-radius: 1rem;
-      border: 2px solid rgba(255,182,193,0.3);
-      margin-bottom: 1rem;
-      transition: all 0.3s ease;
       background: rgba(255,255,255,0.6);
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.875rem 1rem;
+      transition: all 0.3s ease;
+      color: #333;
+      font-size: 0.95rem;
+      width: 100%;
+      margin-bottom: 1rem;
     }
     .input-field:focus {
-      outline: none;
-      border-color: #ff85a2;
       background: rgba(255,255,255,0.8);
+      outline: none;
+      border: 1px solid #ff85a2;
+    }
+    .input-field::placeholder {
+      color: #999;
     }
 
+    /* Buttons */
     .register-btn {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 9999px;
+      background: linear-gradient(135deg, #fd79a8 0%, #fab1a0 100%);
+      color: #fff;
       font-weight: 600;
-      background: linear-gradient(135deg, #ff85a2, #ffb6b9);
-      color: white;
+      border-radius: 0.75rem;
+      width: 100%;
+      padding: 0.875rem;
       transition: all 0.3s ease;
-      font-size: 1.1rem;
+      border: none;
       cursor: pointer;
+      font-size: 1rem;
     }
     .register-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(255,133,162,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(253,121,152,0.35);
     }
 
-    .terms { font-size: 0.85rem; color: #ff7ea0; margin-bottom:1rem; }
-    .terms a { color: #ff85a2; text-decoration: underline; }
+    /* Terms */
+    .terms {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: start;
+      gap: 0.5rem;
+    }
+    .terms input[type="checkbox"] {
+      margin-top: 0.25rem;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .terms a {
+      color: #ff85a2;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .terms a:hover {
+      color: #fd79a8;
+      text-decoration: underline;
+    }
 
-    .login-link { text-align: center; margin-top:1rem; color:#ff85a2; }
-    .login-link a { text-decoration: underline; font-weight:500; }
+    /* Login link */
+    .login-link {
+      text-align: center;
+      margin-top: 1rem;
+      color: #666;
+      font-size: 0.875rem;
+    }
+    .login-link a {
+      color: #ff85a2;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .login-link a:hover {
+      color: #fd79a8;
+      text-decoration: underline;
+    }
+
+    label {
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Floating petals -->
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
+  <!-- Floating shapes -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
 
   <div class="register-card">
-    <h1>Register Now</h1>
-    <p class="subtitle">Sign up and join our soft, dreamy community</p>
+    <!-- Logo -->
+    <div class="logo">S</div>
+    
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-2">Create Account</h1>
+    <p class="text-center text-gray-600 text-sm mb-6">Join our community today</p>
 
     <form method="POST" action="/register">
-      <input type="text" name="name" placeholder="Full Name" required class="input-field">
-      <input type="email" name="email" placeholder="Email Address" required class="input-field">
-      <input type="password" name="password" placeholder="Password" required class="input-field">
+      <div>
+        <label class="block text-gray-700 text-sm mb-2">Full Name</label>
+        <input type="text" name="name" placeholder="Enter your full name" required class="input-field">
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm mb-2">Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required class="input-field">
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm mb-2">Password</label>
+        <input type="password" name="password" placeholder="Create a strong password" required class="input-field">
+      </div>
 
       <div class="terms">
-        <input type="checkbox" required /> I agree to the <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>
+        <input type="checkbox" required id="terms" />
+        <label for="terms" class="cursor-pointer">
+          I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+        </label>
       </div>
 
       <button type="submit" class="register-btn">Create Account</button>
     </form>
 
-    <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+    <p class="login-link">Already have an account? <a href="/login">Sign In</a></p>
   </div>
 
 </body>
